@@ -9,10 +9,19 @@
         android:id="@+id/menuFragment"
         android:name="com.godspeed.food_app.fragment.MenuFragment"
         android:label="Menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/orderHistoryFragment"
         android:name="com.godspeed.food_app.fragment.OrderHistoryFragment"
         android:label="Order History"
         tools:layout="@layout/fragment_order_history" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.godspeed.food_app.fragment.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>
