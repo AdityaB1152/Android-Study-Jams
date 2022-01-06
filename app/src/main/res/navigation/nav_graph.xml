@@ -22,6 +22,6 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.godspeed.food_app.fragment.CartFragment"
-        android:label="fragment_cart"
+        android:label="Cart"
         tools:layout="@layout/fragment_cart" />
 </navigation>

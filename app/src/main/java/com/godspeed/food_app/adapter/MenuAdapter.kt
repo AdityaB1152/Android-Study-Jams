@@ -1,17 +1,13 @@
 package com.godspeed.food_app.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.R
 import com.google.android.material.imageview.ShapeableImageView
-import org.w3c.dom.Text
 
 class MenuAdapter(private var myListener: OnItemClickListener, private val menuList : ArrayList<Menu>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
