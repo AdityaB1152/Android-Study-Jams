@@ -34,6 +34,14 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         binding.bottomNavigationView.setupWithNavController(navController)
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.menuFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                R.id.orderHistoryFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                else -> binding.bottomNavigationView.visibility = View.GONE
+            }
+        }
+
 
     }
 
