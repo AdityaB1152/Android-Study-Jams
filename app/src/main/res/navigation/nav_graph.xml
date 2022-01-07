@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/manu_fragment">
+
+    <fragment
+        android:id="@+id/manu_fragment"
+        android:name="com.godspeed.food_app.manu_fragment"
+        android:label="MENU"
+        tools:layout="@layout/fragment_manu_fragment" />
+    <fragment
+        android:id="@+id/order_fragment"
+        android:name="com.godspeed.food_app.order_fragment"
+        android:label="ORDERS"
+        tools:layout="@layout/fragment_order_fragment" />
+</navigation>
