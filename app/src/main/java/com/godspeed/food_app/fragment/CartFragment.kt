@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.R
 import com.godspeed.food_app.adapter.CartAdapter
 import com.godspeed.food_app.data.Cart
@@ -20,6 +21,7 @@ class CartFragment : Fragment(R.layout.fragment_cart),CartAdapter.OnItemClickLis
     private lateinit var binding : FragmentCartBinding
     private lateinit var cartAdapter: CartAdapter
     private lateinit var cartViewModel: CartViewModel
+    private lateinit var cartRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,21 +29,18 @@ class CartFragment : Fragment(R.layout.fragment_cart),CartAdapter.OnItemClickLis
         savedInstanceState: Bundle?
     ): View{
         binding = FragmentCartBinding.inflate(layoutInflater)
-        cartAdapter = CartAdapter(requireContext(), ArrayList<Cart>(),this)
-        binding.rvCart.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = cartAdapter
-        }
+        cartRecyclerView = binding.rvCart
+        cartRecyclerView.setHasFixedSize(true)
+        cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("PRI","working")
-        cartAdapter = CartAdapter(requireContext(), ArrayList<Cart>(),this)
-        cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
-        cartViewModel.getAllMenu(requireContext())?.observe(viewLifecycleOwner, Observer {
 
+        cartAdapter = CartAdapter(requireContext(), ArrayList<Cart>(),this)
+        cartRecyclerView.adapter = cartAdapter
+        cartViewModel = ViewModelProvider(requireActivity()).get(CartViewModel::class.java)
+        cartViewModel.getAllMenu(requireActivity().applicationContext)?.observe(requireActivity(), Observer<List<Cart>> {
             cartAdapter.setData(it as ArrayList<Cart>)
         })
     }

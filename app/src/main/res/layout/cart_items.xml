@@ -63,6 +63,16 @@
             app:layout_constraintStart_toEndOf="@id/tvPrice"
             app:layout_constraintTop_toBottomOf="@id/tvCartMenuName"
             android:layout_marginStart="5dp"/>
+        <TextView
+            android:id="@+id/tvCartMenuQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="30"
+            app:layout_constraintStart_toEndOf="@id/qty"
+            app:layout_constraintTop_toBottomOf="@id/tvCartMenuPrice"
+            android:layout_marginStart="5dp"/>
 
         <TextView
             android:id="@+id/qty"

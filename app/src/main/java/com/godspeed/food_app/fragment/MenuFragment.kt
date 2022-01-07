@@ -25,7 +25,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
     lateinit var imageId: Array<Int>
     lateinit var name: Array<String>
     lateinit var price: Array<Int>
-    private lateinit var cartAdapter: CartAdapter
     private lateinit var cartViewModel: CartViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,12 +98,12 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
             menuArrayList.add(menu)
 
         }
-        menuRecyclerView.adapter = MenuAdapter(this,menuArrayList)
+        menuRecyclerView.adapter = MenuAdapter(requireContext(),this,menuArrayList)
     }
 
-    override fun onItemClick(position: Int) {
+    override fun onItemClick(position: Int, qty : Int) {
         Toast.makeText(requireContext(), "Added to Cart", Toast.LENGTH_SHORT).show()
-        saveDataInRoomDataBase(position)
+        saveDataInRoomDataBase(position,qty)
 
     }
 
@@ -122,12 +121,12 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
         }
     }
 
-    private fun saveDataInRoomDataBase(position: Int) {
+    private fun saveDataInRoomDataBase(position: Int, qty: Int) {
         val cartMenuImage = imageId[position]
         val cartMenuName  = name[position]
         val cartMenuPrice = price[position]
-        val cartMenuQty = 1
+        val cartMenuQty = qty
         cartViewModel.addMenuToCart(requireContext(), Cart(cartMenuImage,cartMenuName,cartMenuPrice,cartMenuQty))
-        Toast.makeText(requireContext(), "added to room", Toast.LENGTH_SHORT).show()
+
     }
 }

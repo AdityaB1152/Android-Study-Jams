@@ -1,18 +1,21 @@
 package com.godspeed.food_app.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.R
 import com.google.android.material.imageview.ShapeableImageView
+import org.w3c.dom.Text
 
-class MenuAdapter(private var myListener: OnItemClickListener, private val menuList : ArrayList<Menu>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
-
+class MenuAdapter(private var context: Context,private var myListener: OnItemClickListener, private val menuList : ArrayList<Menu>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+    var qty:Int = 1
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int,qty : Int)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.menu_items,parent,false)
@@ -25,7 +28,20 @@ class MenuAdapter(private var myListener: OnItemClickListener, private val menuL
         holder.menuImage.setImageResource(currentMenuItem.menuImage)
         holder.menuName.text = currentMenuItem.menuName
         holder.menuPrice.text= currentMenuItem.menuPrice.toString()
+        holder.incBtn.setOnClickListener {
+            qty ++
+            holder.menuQty.text = qty.toString()
+        }
+        holder.decBtn.setOnClickListener {
+            if (qty>1){
+                qty --
+                holder.menuQty.text = qty.toString()
+            }
+            else{
+                Toast.makeText(context,"Qty cant be less than 1",Toast.LENGTH_SHORT).show()
+            }
 
+        }
 
     }
 
@@ -37,6 +53,10 @@ class MenuAdapter(private var myListener: OnItemClickListener, private val menuL
         val menuImage : ShapeableImageView = itemView.findViewById(R.id.ivMenu)
         val menuPrice : TextView = itemView.findViewById(R.id.tvMenuPrice)
         val menuName : TextView = itemView.findViewById(R.id.tvMenuName)
+        val incBtn : Button = itemView.findViewById(R.id.btnInc)
+        val decBtn : Button = itemView.findViewById(R.id.btnDec)
+        var menuQty : TextView = itemView.findViewById(R.id.tvQty)
+
 
 
         init {
@@ -46,8 +66,9 @@ class MenuAdapter(private var myListener: OnItemClickListener, private val menuL
 
         override fun onClick(p0: View?) {
             val position = bindingAdapterPosition
+
             if (position!= RecyclerView.NO_POSITION) {
-                myListener.onItemClick(position)
+                myListener.onItemClick(position,qty)
             }
         }
 

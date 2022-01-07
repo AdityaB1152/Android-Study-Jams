@@ -41,8 +41,6 @@ class MainActivity : AppCompatActivity() {
                 else -> binding.bottomNavigationView.visibility = View.GONE
             }
         }
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

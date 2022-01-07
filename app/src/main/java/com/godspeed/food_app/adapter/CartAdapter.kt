@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.R
 import com.godspeed.food_app.data.Cart
 import com.google.android.material.imageview.ShapeableImageView
 
-class CartAdapter(private val context: Context, private var cartList : ArrayList<Cart>, private var myListener: CartAdapter.OnItemClickListener) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val context: Context, private var cartList : ArrayList<Cart>, private var myListener:OnItemClickListener) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     interface OnItemClickListener{
         fun onItemClick(cart: Cart)
@@ -25,20 +26,21 @@ class CartAdapter(private val context: Context, private var cartList : ArrayList
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val cart:Cart = cartList[position]
+        val cart = this.cartList[position]
         holder.cartMenuImage.setImageResource(cart.menuImage)
         holder.cartMenuName.text = cart.menuName
         holder.cartMenuPrice.text= cart.menuPrice.toString()
+        holder.cartMenuQty.text = cart.menuQuantity.toString()
+        holder.cartMenuTotalPrice.text = (cart.menuPrice*cart.menuQuantity).toString()
 
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+
     fun setData(cartList: ArrayList<Cart>){
-        for ( i in cartList){
-            Log.d("TAG",i.menuName)
-        }
+
         this.cartList=cartList
         notifyDataSetChanged()
+
     }
 
     override fun getItemCount(): Int {
@@ -49,9 +51,12 @@ class CartAdapter(private val context: Context, private var cartList : ArrayList
         val cartMenuImage : ShapeableImageView = itemView.findViewById(R.id.ivCartMenu)
         val cartMenuPrice : TextView = itemView.findViewById(R.id.tvCartMenuPrice)
         val cartMenuName : TextView = itemView.findViewById(R.id.tvCartMenuName)
+        val cartMenuQty: TextView = itemView.findViewById(R.id.tvCartMenuQty)
+        val cartMenuTotalPrice: TextView = itemView.findViewById(R.id.tvTotalPrice)
+
 
         init {
-            itemView.findViewById<Button>(R.id.btnDltMenuCart).setOnClickListener(this)
+            itemView.findViewById<ImageView>(R.id.btnDltMenuCart).setOnClickListener(this)
         }
 
         override fun onClick(p0: View?) {
