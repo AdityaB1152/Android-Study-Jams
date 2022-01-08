@@ -19,7 +19,6 @@ class OrderHistoryAdapter(private var orderHistoryList: ArrayList<OrderHistoryIt
         val orderStatus = v.findViewById<TextView>(R.id.ord_his_status)
         val price = v.findViewById<TextView>(R.id.pricetot)
         val item = v.findViewById<TextView>(R.id.items)
-
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adaptlayout = LayoutInflater.from(parent.context)
@@ -37,9 +36,7 @@ class OrderHistoryAdapter(private var orderHistoryList: ArrayList<OrderHistoryIt
         holder.orderID.text=orderitems.ordid.toString()
         holder.item.text=orderitems.items.toString()
     }
-
     override fun getItemCount() = orderHistoryList.size
-
 }
 
 

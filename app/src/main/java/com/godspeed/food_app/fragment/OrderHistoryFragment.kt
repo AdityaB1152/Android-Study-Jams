@@ -50,7 +50,7 @@ class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
                 for((k, v) in map){
                     orditems = v.toString() + "\n" + orditems
                 }
-                orderarraylist.add(OrderHistoryItem(document.data["date_placed"] as String, document.data["status"] as String, document.data["price"] as Long, document.data["order_no"] as Long, orditems))
+                orderarraylist.add(OrderHistoryItem(document.id, document.data["date_placed"] as String, document.data["status"] as String, document.data["price"] as Long, document.data["order_no"] as Long, orditems))
                 Log.d("TAG", "${document.id} => ${document.data["price"]}")
             }
             val adapter = OrderHistoryAdapter(orderarraylist)
