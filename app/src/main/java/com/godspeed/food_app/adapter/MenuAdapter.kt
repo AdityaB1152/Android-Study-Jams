@@ -29,8 +29,6 @@ class MenuAdapter(private var myListener: OnItemClickListener, private val menuL
         holder.menuImage.setImageResource(currentMenuItem.menuImage)
         holder.menuName.text = currentMenuItem.menuName
         holder.menuPrice.text= currentMenuItem.menuPrice.toString()
-
-
     }
 
     override fun getItemCount(): Int {
