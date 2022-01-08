@@ -13,12 +13,15 @@ import com.google.android.material.imageview.ShapeableImageView
 import org.w3c.dom.Text
 
 class MenuAdapter(private var context: Context,private var myListener: OnItemClickListener, private val menuList : ArrayList<Menu>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
-    var qty:Int = 1
+
+
+
     interface OnItemClickListener{
         fun onItemClick(position: Int,qty : Int)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.menu_items,parent,false)
+
         return MenuViewHolder(itemView)
     }
 
@@ -28,14 +31,16 @@ class MenuAdapter(private var context: Context,private var myListener: OnItemCli
         holder.menuImage.setImageResource(currentMenuItem.menuImage)
         holder.menuName.text = currentMenuItem.menuName
         holder.menuPrice.text= currentMenuItem.menuPrice.toString()
+
+
         holder.incBtn.setOnClickListener {
-            qty ++
-            holder.menuQty.text = qty.toString()
+            currentMenuItem.menuQuantity++
+            holder.menuQty.text = currentMenuItem.menuQuantity.toString()
         }
         holder.decBtn.setOnClickListener {
-            if (qty>1){
-                qty --
-                holder.menuQty.text = qty.toString()
+            if (currentMenuItem.menuQuantity>1){
+                currentMenuItem.menuQuantity --
+                holder.menuQty.text = currentMenuItem.menuQuantity.toString()
             }
             else{
                 Toast.makeText(context,"Qty cant be less than 1",Toast.LENGTH_SHORT).show()
@@ -66,7 +71,7 @@ class MenuAdapter(private var context: Context,private var myListener: OnItemCli
 
         override fun onClick(p0: View?) {
             val position = bindingAdapterPosition
-
+            val qty = menuList[position].menuQuantity
             if (position!= RecyclerView.NO_POSITION) {
                 myListener.onItemClick(position,qty)
             }
