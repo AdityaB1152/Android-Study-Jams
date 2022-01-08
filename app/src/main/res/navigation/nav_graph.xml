@@ -3,7 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/signupphone">
+
+    <fragment
+        android:id="@+id/otp"
+        android:name="com.godspeed.food_app.fragment.otp"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otp_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_otp_to_registration2"
+            app:destination="@id/registration" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupphone"
+        android:name="com.godspeed.food_app.fragment.signupphone"
+        android:label="fragment_signupphone"
+        tools:layout="@layout/fragment_signupphone" >
+        <action
+            android:id="@+id/action_signupphone_to_otp"
+            app:destination="@id/otp" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.godspeed.food_app.fragment.registration"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registration_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/menuFragment"
@@ -14,14 +47,17 @@
             android:id="@+id/action_menuFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/orderHistoryFragment"
         android:name="com.godspeed.food_app.fragment.OrderHistoryFragment"
         android:label="Order History"
         tools:layout="@layout/fragment_order_history" />
+
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.godspeed.food_app.fragment.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+
 </navigation>

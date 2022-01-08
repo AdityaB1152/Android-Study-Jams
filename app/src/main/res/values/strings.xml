@@ -12,4 +12,11 @@
     <string name="order_items">"Order Items: "</string>
     <string name="ord_total">Rs. </string>
     <string name="price">Price</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="enter_your_phone_no">Enter Your Phone No ..</string>
+    <string name="verify">Verify</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="name">Name</string>
+    <string name="branch">Branch</string>
+    <string name="roll_no">Roll No.</string>
 </resources>
