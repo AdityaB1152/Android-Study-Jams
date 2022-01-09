@@ -1,18 +1,20 @@
 package com.godspeed.food_app.fragment
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.R
+import com.godspeed.food_app.adapter.CartAdapter
 import com.godspeed.food_app.adapter.Menu
 import com.godspeed.food_app.adapter.MenuAdapter
+import com.godspeed.food_app.data.Cart
 import com.godspeed.food_app.databinding.FragmentMenuBinding
+import com.godspeed.food_app.viewmodel.CartViewModel
 
 
 class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickListener{
@@ -23,6 +25,12 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
     lateinit var imageId: Array<Int>
     lateinit var name: Array<String>
     lateinit var price: Array<Int>
+    private lateinit var cartViewModel: CartViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +46,8 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
 
         imageId = arrayOf(
             R.drawable.menu_food80,
@@ -79,14 +89,38 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
     private fun getMenuData(){
 
         for ( i in imageId.indices){
-            val menu = Menu(imageId[i],name[i],price[i])
+            val menu = Menu(imageId[i],name[i],price[i],1)
             menuArrayList.add(menu)
         }
-        menuRecyclerView.adapter = MenuAdapter(this,menuArrayList)
+        menuRecyclerView.adapter = MenuAdapter(requireContext(),this,menuArrayList)
     }
 
-    override fun onItemClick(position: Int) {
-        Toast.makeText(requireContext(), "clickeddddddd", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_menuFragment_to_cartFragment)
+    override fun onItemClick(position: Int, qty : Int) {
+        Toast.makeText(requireContext(), "Added to Cart", Toast.LENGTH_SHORT).show()
+        saveDataInRoomDataBase(position,qty)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: android.view.Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.cart_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.cart ->{
+                findNavController().navigate(R.id.action_menuFragment_to_cartFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun saveDataInRoomDataBase(position: Int, qty: Int) {
+        val cartMenuImage = imageId[position]
+        val cartMenuName  = name[position]
+        val cartMenuPrice = price[position]
+        val cartMenuQty = qty
+        cartViewModel.addMenuToCart(requireContext(), Cart(cartMenuImage,cartMenuName,cartMenuPrice,cartMenuQty))
+
     }
 }

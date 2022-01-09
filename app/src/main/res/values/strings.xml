@@ -25,4 +25,5 @@
     <string name="enter_name">Enter Name</string>
     <string name="enter_branch">Enter Branch</string>
     <string name="enter_roll_number">Enter Roll number</string>
+    <string name="deletes_the_menu">Deletes the Menu</string>
 </resources>

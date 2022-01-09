@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.MainActivity
 import com.godspeed.food_app.OrderHistoryAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.godspeed.food_app.R
 import com.godspeed.food_app.data.OrderHistoryItem
 import com.godspeed.food_app.databinding.FragmentOrderHistoryBinding
@@ -61,5 +62,8 @@ class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
 //                Toast.makeText(this,"Error getting documents: ", Toast.LENGTH_SHORT).show()
 }
         orderarraylist= arrayListOf<OrderHistoryItem>()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 }

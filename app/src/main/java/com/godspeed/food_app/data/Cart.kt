@@ -1,3 +1,19 @@
 package com.godspeed.food_app.data
 
-data class Cart(var menuImage : Int, var menuName : String, var menuPrice : Int, var menuQuantity : Int)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "menuCart"
+)
+data class Cart(
+
+    val menuImage : Int,
+    val menuName : String,
+    val menuPrice : Int,
+    val menuQuantity : Int
+    ){
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null
+
+}

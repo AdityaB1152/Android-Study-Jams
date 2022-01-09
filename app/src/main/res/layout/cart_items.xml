@@ -21,7 +21,7 @@
         android:padding="14dp"
         >
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivMenu"
+            android:id="@+id/ivCartMenu"
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:shapeAppearanceOverlay="@style/RoundCorner"
@@ -30,12 +30,12 @@
             android:src="@drawable/menu_food80"
             app:layout_constraintTop_toTopOf="parent"/>
         <TextView
-            android:id="@+id/tvMenuName"
+            android:id="@+id/tvCartMenuName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@id/ivMenu"
+            app:layout_constraintStart_toEndOf="@id/ivCartMenu"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="20dp"
             android:textStyle="bold"
@@ -48,12 +48,12 @@
             android:textColor="@color/black"
             android:text="Price(Rs) : "
             android:layout_marginTop="5dp"
-            app:layout_constraintStart_toEndOf="@id/ivMenu"
-            app:layout_constraintTop_toBottomOf="@id/tvMenuName"
+            app:layout_constraintStart_toEndOf="@id/ivCartMenu"
+            app:layout_constraintTop_toBottomOf="@id/tvCartMenuName"
             android:layout_marginStart="20dp"/>
 
         <TextView
-            android:id="@+id/tvMenuPrice"
+            android:id="@+id/tvCartMenuPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -61,56 +61,66 @@
             android:text="30"
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@id/tvPrice"
-            app:layout_constraintTop_toBottomOf="@id/tvMenuName"
+            app:layout_constraintTop_toBottomOf="@id/tvCartMenuName"
+            android:layout_marginStart="5dp"/>
+        <TextView
+            android:id="@+id/tvCartMenuQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="30"
+            app:layout_constraintStart_toEndOf="@id/qty"
+            app:layout_constraintTop_toBottomOf="@id/tvCartMenuPrice"
             android:layout_marginStart="5dp"/>
 
-        <Button
-            android:id="@+id/btnDec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/ivMenu"
-            app:layout_constraintTop_toBottomOf="@id/tvPrice"
-            android:layout_marginStart="20dp"
-            android:text="-"
-            />
         <TextView
-            android:id="@+id/tvQty"
+            android:id="@+id/qty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"
+            android:textSize="15sp"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@id/btnDec"
-            app:layout_constraintTop_toBottomOf="@id/tvPrice"/>
-        <Button
-            android:id="@+id/btnInc"
+            android:text="Qty : "
+            app:layout_constraintStart_toEndOf="@id/ivCartMenu"
+            app:layout_constraintTop_toBottomOf="@id/tvCartMenuPrice"
+            android:layout_marginStart="20dp"/>
+
+        <ImageView
+            android:id="@+id/btnDltMenuCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-            android:textStyle="bold"
-            android:textAlignment="gravity"
-            android:textSize="15sp"
-            android:layout_marginStart="5dp"
-            app:layout_constraintStart_toEndOf="@id/tvQty"
-            app:layout_constraintTop_toBottomOf="@id/tvPrice"
-            android:text="+"
-            />
-
-
-        <Button
-            android:id="@+id/btnAddCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_delete_24"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/deletes_the_menu" />
+
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="Add"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:textColor="@color/black"
+            android:text="Total Price (RS) : "
+            app:layout_constraintStart_toEndOf="@id/ivCartMenu"
+            app:layout_constraintTop_toBottomOf="@id/qty"
+            android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="30"
+            app:layout_constraintStart_toEndOf="@id/totalPrice"
+            app:layout_constraintTop_toBottomOf="@id/qty"
+            android:layout_marginStart="5dp"/>
+
+
+
+
+
+
+
 
 
 
