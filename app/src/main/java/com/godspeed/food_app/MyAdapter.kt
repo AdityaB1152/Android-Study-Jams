@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Switch
 import android.widget.TextView
 import com.godspeed.food_app.MyAdapter.MyViewHolder
 import androidx.recyclerview.widget.RecyclerView
@@ -34,9 +33,6 @@ class MyAdapter (private val newslist:ArrayList<News>): RecyclerView.Adapter<MyV
         val titleImage : ShapeableImageView =itemView.findViewById(R.id.title_image)
         val title_of_food: TextView =itemView.findViewById(R.id.name_of_food)
         val foodcost: TextView =itemView.findViewById(R.id.cost_of_item)
-        @SuppressLint("UseSwitchCompatOrMaterialCode")
-        val switchbtn: Switch =itemView.findViewById(R.id.switch_for_on_off)
-        //here I also need to add switch button referance
 
 
     }

@@ -42,12 +42,12 @@ class manu_fragment : Fragment() {
 
         imageid= arrayOf   (
             R.drawable.rice,
-            R.drawable.rice,
-            R.drawable.rice,
+            R.drawable.roti,
+            R.drawable.bhaji,
             R.drawable.rice,
             R.drawable.pavbhaji,
             R.drawable.paneer,
-            R.drawable.rice,
+            R.drawable.coffee,
             R.drawable.rice,
             R.drawable.sandwich,
             R.drawable.samosa,

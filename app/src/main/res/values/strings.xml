@@ -2,9 +2,7 @@
     <string name="app_name">Food_App</string>
     <string name="MENU">MENU</string>
     <string name="AVAILABILITY">AVAILABILITY</string>
-    <string name="hello_blank_fragment">Shreyash_Fragment</string>
-    <string name="my">Pratik_Fragment</string>
-    <string name="ORDERS">ORDER</string>
+    <string name="ORDERS">ORDERS</string>
     <string name="date_and_time">date</string>
     <string name="order_no">Order No:</string>
     <string name="order_No">525</string>
