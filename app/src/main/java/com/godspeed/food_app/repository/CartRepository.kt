@@ -30,8 +30,8 @@ class CartRepository {
             CoroutineScope(IO).launch {
                 cartDatabase?.getCartDao()?.deleteMenu(cart)
             }
-        }
 
+        }
 
 
     }
