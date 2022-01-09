@@ -82,15 +82,8 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
         price = arrayOf(
             60,10,40,20,50,70,30,60,30,30,15,10
         )
-
-
-
-
-
         menuArrayList = arrayListOf<Menu>()
         getMenuData()
-
-
     }
 
     private fun getMenuData(){
@@ -98,7 +91,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickL
         for ( i in imageId.indices){
             val menu = Menu(imageId[i],name[i],price[i],1)
             menuArrayList.add(menu)
-
         }
         menuRecyclerView.adapter = MenuAdapter(requireContext(),this,menuArrayList)
     }

@@ -47,7 +47,6 @@ class MenuAdapter(private var context: Context,private var myListener: OnItemCli
             }
 
         }
-
     }
 
     override fun getItemCount(): Int {
