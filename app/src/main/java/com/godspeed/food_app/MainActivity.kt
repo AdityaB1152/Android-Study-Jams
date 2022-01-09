@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private val TAG = "LoginActivity"
     private val auth = FirebaseAuth.getInstance()
-    private var storedVerificationId:String = ""
+    private var storedVerificationId: String = ""
     private lateinit var binding: ActivityMainBinding
 
     override fun onStart() {
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-            Log.d(TAG, "onVerificationCompleted:$credential")
+            Log.d(TAG, "onVerificationCompleted: $credential")
             signInWithPhoneAuthCredential(credential)
         }
 
