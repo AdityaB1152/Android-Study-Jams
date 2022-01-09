@@ -1,43 +1,54 @@
 package com.godspeed.food_app.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.MainActivity
-import com.godspeed.food_app.OrderHistoryAdapter
-import androidx.appcompat.app.AppCompatActivity
+import com.godspeed.food_app.OwnerOrderAdapter
 import com.godspeed.food_app.R
-import com.godspeed.food_app.data.OrderHistoryItem
-import com.godspeed.food_app.databinding.FragmentOrderHistoryBinding
+import com.godspeed.food_app.data.OwnerOrderModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.math.log
+import com.godspeed.food_app.databinding.FragmentOwnerOrderBinding
 
 val db = Firebase.firestore
 
-class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
-    private lateinit var binding: FragmentOrderHistoryBinding
-    private lateinit var orderarraylist: ArrayList<OrderHistoryItem>
-    private lateinit var orderhistrecycler: RecyclerView
+class OwnerOrderFragment : Fragment(R.layout.fragment_owner_order) {
+    private lateinit var binding: FragmentOwnerOrderBinding
+    private lateinit var orderarraylist: ArrayList<OwnerOrderModel>
+    private lateinit var ownerorder: RecyclerView
+
+
+    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        val dropdown = itemView.findViewById<Spinner>(R.id.spinner)
+        val items = arrayOf("1", "2", "three")
+        //val adapter = ArrayAdapter(context,android.R.layout.simple_spinner_dropdown_item, items)
+        //dropdown.adapter = adapter
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOrderHistoryBinding.inflate(layoutInflater)
-        orderhistrecycler=binding.rvorderhist
-        orderhistrecycler.layoutManager=LinearLayoutManager(requireContext())
-        orderhistrecycler.setHasFixedSize(true)
+        binding = FragmentOwnerOrderBinding.inflate(layoutInflater)
+        ownerorder=binding.ownerrv
+        ownerorder.layoutManager=LinearLayoutManager(requireContext())
+        ownerorder.setHasFixedSize(true)
         return binding.root
     }
 
@@ -51,19 +62,18 @@ class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
                 for((k, v) in map){
                     orditems = v.toString() + "\n" + orditems
                 }
-                orderarraylist.add(OrderHistoryItem(document.id, document.data["date_placed"] as String, document.data["status"] as String, document.data["price"] as Long, document.data["order_no"] as Long, orditems))
+                orderarraylist.add(OwnerOrderModel(document.id,document.data["date_placed"] as String,document.data["order_no"] as Long, document.data["price"] as Long,  orditems, document.data["name"] as String))
                 Log.d("TAG", "${document.id} => ${document.data["price"]}")
             }
-            val adapter = OrderHistoryAdapter(orderarraylist)
-            orderhistrecycler.adapter = adapter
+            val adapter = OwnerOrderAdapter(requireContext(),orderarraylist)
+            ownerorder.adapter = adapter
         }
             .addOnFailureListener { exception ->
                 Log.d("TAG", "Error getting documents: ", exception)
+
 //                Toast.makeText(this,"Error getting documents: ", Toast.LENGTH_SHORT).show()
-}
-        orderarraylist= arrayListOf<OrderHistoryItem>()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            }
+        orderarraylist = arrayListOf<OwnerOrderModel>()
+//        getorderhist()
     }
 }

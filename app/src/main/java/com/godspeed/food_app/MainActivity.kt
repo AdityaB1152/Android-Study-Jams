@@ -1,4 +1,9 @@
 package com.godspeed.food_app
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.getotp.setOnClickListener{sendOtp()}
         binding.verifotp.setOnClickListener{verifyOtp()}
@@ -81,7 +87,6 @@ class MainActivity : AppCompatActivity() {
                 // The SMS quota for the project has been exceeded
 //                Toast.makeText(this, "SMS Quota Reached! Contact Developer!", Toast.LENGTH_SHORT).show()
             }
-            reset()
         }
 
         override fun onCodeSent(
@@ -121,11 +126,5 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
-    }
-
-    private fun reset (){
-        binding.enterphone.text.clear()
-        binding.enterotp2.text.clear()
-        auth.signOut()
     }
 }
