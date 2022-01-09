@@ -3,6 +3,7 @@ package com.godspeed.food_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -17,5 +18,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val button = findViewById<Button>(R.id.verifotp)
+
+        button.setOnClickListener {
+            val intent = Intent(this, RegistrationFrom::class.java)
+            intent.putExtra("letter", button.text.toString())
+            startActivity(intent)
+        }
     }
 }
