@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="underline">#ff8229</color>
+    <color name="grey">#ABABAA</color>
 
 </resources>

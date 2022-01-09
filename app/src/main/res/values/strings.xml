@@ -5,4 +5,14 @@
     <string name="hello_blank_fragment">Shreyash_Fragment</string>
     <string name="my">Pratik_Fragment</string>
     <string name="ORDERS">ORDER</string>
+    <string name="date_and_time">date</string>
+    <string name="order_no">Order No:</string>
+    <string name="order_No">525</string>
+    <string name="customer_name">name</string>
+    <string name="cus_name">Name</string>
+    <string name="items">orderitem</string>
+    <string name="item_and_quantity">itemandquantity</string>
+    <string name="price">price</string>
+    <string name="_1000">1000</string>
+    <string name="cancel">cancel</string>
 </resources>

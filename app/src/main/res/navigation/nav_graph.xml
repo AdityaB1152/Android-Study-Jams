@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_manu_fragment" />
     <fragment
         android:id="@+id/order_fragment"
-        android:name="com.godspeed.food_app.order_fragment"
+        android:name="com.godspeed.food_app.fragment.OwnerOrderFragment"
         android:label="ORDERS"
-        tools:layout="@layout/fragment_order_fragment" />
+        tools:layout="@layout/fragment_owner_order" />
 </navigation>
