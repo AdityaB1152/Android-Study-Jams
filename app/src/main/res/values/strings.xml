@@ -20,8 +20,8 @@
     <string name="branch">Branch</string>
     <string name="roll_no">Roll No.</string>
     <string name="submit">SUBMIT</string>
-    <string name="radiobutton">RadioButton</string>
-    <string name="radiobutton">RadioButton</string>
+    <string name="radiobutton">Student</string>
+    <string name="radiobutton2">Owner</string>
     <string name="enter_name">Enter Name</string>
     <string name="enter_branch">Enter Branch</string>
     <string name="enter_roll_number">Enter Roll number</string>
