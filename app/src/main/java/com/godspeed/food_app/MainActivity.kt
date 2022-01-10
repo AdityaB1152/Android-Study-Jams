@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
         } else {
-            binding.layoutLoadingProfile.visibility = View.VISIBLE
-            binding.authCardView.visibility = View.GONE
+            binding.layoutLoadingProfile.visibility = View.GONE
+            binding.authCardView.visibility = View.VISIBLE
         }
 
     }

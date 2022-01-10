@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food_App</string>
+    <string name="app_name">Canteen App</string>
     <string name="MENU">MENU</string>
     <string name="AVAILABILITY">AVAILABILITY</string>
     <string name="ORDERS">ORDERS</string>

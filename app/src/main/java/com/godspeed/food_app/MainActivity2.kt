@@ -75,9 +75,11 @@ class MainActivity2 : AppCompatActivity() {
                     if(profileMap["role"] == "Customer"){
                         val intent = Intent(this, MainActivity3::class.java)
                         startActivity(intent)
+                        finish()
                     } else {
                         val intent = Intent(this, OwnerActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }
 
                 } else {
