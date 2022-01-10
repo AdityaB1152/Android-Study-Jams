@@ -1,21 +1,17 @@
 package com.godspeed.food_app
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.content.Intent
 import android.util.Log
+import android.view.View
 import android.widget.Toast
-import com.godspeed.food_app.databinding.ActivityMain2Binding
-import com.godspeed.food_app.databinding.ActivityMain3Binding
 import com.godspeed.food_app.databinding.ActivityMainBinding
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -24,14 +20,31 @@ class MainActivity : AppCompatActivity() {
     private val auth = FirebaseAuth.getInstance()
     private var storedVerificationId: String = ""
     private lateinit var binding: ActivityMainBinding
+    private val db = Firebase.firestore
 
     override fun onStart() {
         super.onStart()
+        binding.layoutLoadingProfile.visibility = View.VISIBLE
+        binding.authCardView.visibility = View.GONE
         if(auth.currentUser != null){
-            val intent = Intent(this, MainActivity3::class.java)
-            startActivity(intent)
-            finish()
+            db.collection("Profiles").document(auth.currentUser!!.uid).get()
+                .addOnCompleteListener{task->
+                    if(task.result?.exists() == true){
+                        val intent = Intent(this, MainActivity3::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val intent = Intent(this, MainActivity2::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+
+                }
+        } else {
+            binding.layoutLoadingProfile.visibility = View.VISIBLE
+            binding.authCardView.visibility = View.GONE
         }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Please enter valid phone number!", Toast.LENGTH_SHORT).show()
             return
         }
+        binding.authProgress.visibility = View.VISIBLE
         val phoneNumber = "+91 " + binding.enterphone.text.toString()
 
         val options = PhoneAuthOptions.newBuilder(auth)
@@ -75,6 +89,8 @@ class MainActivity : AppCompatActivity() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
             Log.d(TAG, "onVerificationCompleted: $credential")
+            binding.authProgress.visibility = View.GONE
+            binding.layoutPhone.visibility = View.GONE
             signInWithPhoneAuthCredential(credential)
         }
 
@@ -82,11 +98,12 @@ class MainActivity : AppCompatActivity() {
             Log.w(TAG, "onVerificationFailed", e)
 
             if (e is FirebaseAuthInvalidCredentialsException) {
-//                Toast.makeText(this, "Invalid Request! Contact Developer!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Invalid Request! Contact Developer!", Toast.LENGTH_SHORT).show()
             } else if (e is FirebaseTooManyRequestsException) {
                 // The SMS quota for the project has been exceeded
-//                Toast.makeText(this, "SMS Quota Reached! Contact Developer!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "SMS Quota Reached! Contact Developer!", Toast.LENGTH_SHORT).show()
             }
+            binding.authProgress.visibility = View.GONE
         }
 
         override fun onCodeSent(
@@ -101,6 +118,9 @@ class MainActivity : AppCompatActivity() {
             // Save verification ID and resending token so we can use them later
             storedVerificationId = verificationId
 //            resendToken = token
+            binding.authProgress.visibility = View.GONE
+            binding.layoutPhone.visibility = View.GONE
+            binding.layoutOtp.visibility = View.VISIBLE
         }
     }
 
@@ -121,10 +141,10 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "Invalid code, Try Again!", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this, "Something went wrong!", Toast.LENGTH_SHORT).show()
-                        reset()
                     }
-
                 }
+                binding.authProgress.visibility = View.GONE
+
             }
     }
 }

@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroupRole"
             android:layout_width="124dp"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,14 +40,14 @@
         </RadioGroup>
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/etPersonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/enter_name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+            app:layout_constraintBottom_toTopOf="@+id/etBranch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,34 +56,34 @@
             android:importantForAutofill="no" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/etBranch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/enter_branch"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+            app:layout_constraintBottom_toTopOf="@+id/etRoll"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/etPersonName"
             tools:ignore="TextContrastCheck"
             android:importantForAutofill="no" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/etRoll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/enter_roll_number"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroupRole"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+            app:layout_constraintTop_toBottomOf="@+id/etBranch"
             tools:ignore="TextContrastCheck"
             android:importantForAutofill="no" />
 
@@ -96,7 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupRole" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

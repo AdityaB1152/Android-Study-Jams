@@ -25,9 +25,10 @@ import kotlin.collections.HashMap
 import kotlin.math.log
 import com.godspeed.food_app.databinding.FragmentOwnerOrderBinding
 
-val db = Firebase.firestore
 
 class OwnerOrderFragment : Fragment(R.layout.fragment_owner_order) {
+
+    private val db = Firebase.firestore
     private lateinit var binding: FragmentOwnerOrderBinding
     private lateinit var orderarraylist: ArrayList<OwnerOrderModel>
     private lateinit var ownerorder: RecyclerView

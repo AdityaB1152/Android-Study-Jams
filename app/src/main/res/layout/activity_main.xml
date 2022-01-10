@@ -1,68 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/verifotp"
-            android:layout_width="wrap_content"
+    <LinearLayout
+            android:id="@+id/layoutLoadingProfile"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="280dp"
-            android:text="@string/verify"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/enterphone"
-            android:layout_width="wrap_content"
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Please wait, while we check your profile!" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+            android:visibility="gone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_your_phone_no"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:textColorHint="#121212"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/verifotp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.346" />
-
-        <EditText
-            android:id="@+id/enterotp2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_otp"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:textColorHint="#121212"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/verifotp"
+            android:id="@+id/authCardView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.687"
-            tools:ignore="DuplicateSpeakableTextCheck" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/getotp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:text="@string/get_otp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/verifotp" />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                    android:id="@+id/layout_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+                <EditText
+                        android:id="@+id/enterphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_your_phone_no"
+                        android:importantForAutofill="no"
+                        android:inputType="phone"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColorHint="#121212"
+                        android:textSize="20sp" />
+                <Button
+                        android:id="@+id/getotp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/get_otp" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/layout_otp"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <EditText
+                        android:id="@+id/enterotp2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_otp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:textColorHint="#121212"
+                        android:textSize="20sp"
+                        tools:layout_editor_absoluteX="314dp" />
+                <Button
+                        android:id="@+id/verifotp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/verify"
+                        android:layout_gravity="center"
+                        />
+            </LinearLayout>
+
+            <ProgressBar
+                    android:id="@+id/auth_progress"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

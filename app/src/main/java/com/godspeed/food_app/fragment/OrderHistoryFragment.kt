@@ -22,9 +22,12 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.math.log
 
-val db = Firebase.firestore
+
 
 class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
+
+    val db = Firebase.firestore
+
     private lateinit var binding: FragmentOrderHistoryBinding
     private lateinit var orderarraylist: ArrayList<OrderHistoryItem>
     private lateinit var orderhistrecycler: RecyclerView
@@ -60,10 +63,7 @@ class OrderHistoryFragment : Fragment(R.layout.fragment_order_history) {
             .addOnFailureListener { exception ->
                 Log.d("TAG", "Error getting documents: ", exception)
 //                Toast.makeText(this,"Error getting documents: ", Toast.LENGTH_SHORT).show()
+            }
 }
-        orderarraylist= arrayListOf<OrderHistoryItem>()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-    }
+//        orderarraylist= arrayListOf<OrderHistoryItem>()
 }
