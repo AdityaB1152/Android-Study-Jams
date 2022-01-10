@@ -6,17 +6,6 @@
     app:startDestination="@id/menuFragment">
 
     <fragment
-        android:id="@+id/manu_fragment"
-        android:name="com.godspeed.food_app.manu_fragment"
-        android:label="MENU"
-        tools:layout="@layout/fragment_manu_fragment" />
-    <fragment
-        android:id="@+id/order_fragment"
-        android:name="com.godspeed.food_app.fragment.OwnerOrderFragment"
-        android:label="ORDERS"
-        tools:layout="@layout/fragment_owner_order" />
-
-    <fragment
         android:id="@+id/menuFragment"
         android:name="com.godspeed.food_app.fragment.MenuFragment"
         android:label="Menu"

@@ -30,9 +30,16 @@ class MainActivity : AppCompatActivity() {
             db.collection("Profiles").document(auth.currentUser!!.uid).get()
                 .addOnCompleteListener{task->
                     if(task.result?.exists() == true){
-                        val intent = Intent(this, MainActivity3::class.java)
-                        startActivity(intent)
-                        finish()
+                        if(task.result!!["role"] as String == "Customer"){
+                            val intent = Intent(this, MainActivity3::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            val intent = Intent(this, OwnerActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+
                     } else {
                         val intent = Intent(this, MainActivity2::class.java)
                         startActivity(intent)

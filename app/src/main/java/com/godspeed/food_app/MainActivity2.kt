@@ -76,7 +76,7 @@ class MainActivity2 : AppCompatActivity() {
                         val intent = Intent(this, MainActivity3::class.java)
                         startActivity(intent)
                     } else {
-                        val intent = Intent(this, MainActivity3::class.java)
+                        val intent = Intent(this, OwnerActivity::class.java)
                         startActivity(intent)
                     }
 
