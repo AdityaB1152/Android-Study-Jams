@@ -1,12 +1,9 @@
 package com.godspeed.food_app.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +11,7 @@ import com.godspeed.food_app.R
 import com.godspeed.food_app.data.Cart
 import com.google.android.material.imageview.ShapeableImageView
 
-class CartAdapter(private val context: Context, private var cartList : ArrayList<Cart>, private var myListener:OnItemClickListener) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val context: Context?, private var cartList: ArrayList<Cart>, private var myListener:OnItemClickListener) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     interface OnItemClickListener{
         fun onItemClick(cart: Cart)

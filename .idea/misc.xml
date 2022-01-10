@@ -26,10 +26,15 @@
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/activity_main3.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/activity_registration_from.xml" value="0.3333333333333333" />
-        <entry key="app/src/main/res/layout/list_item.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/layout/cart_items.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/menu_items.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/orderhistoryitems.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/owner_order_cardview.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/sample_orderd_item.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>

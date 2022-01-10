@@ -10,7 +10,6 @@ class CartViewModel: ViewModel() {
 
     fun addMenuToCart(context: Context,cart: Cart){
         CartRepository.addMenuToCart(context,cart)
-
     }
     fun getAllMenu(context: Context): LiveData<List<Cart>>?{
         return CartRepository.getAllMenu(context)
