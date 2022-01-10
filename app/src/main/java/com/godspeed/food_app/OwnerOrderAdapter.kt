@@ -35,26 +35,26 @@ class OwnerOrderAdapter(private val ctx : Context, private var orderList:ArrayLi
         val items = arrayOf("Placed", "Ready", "Complete")
         val adapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, items)
         holder.spinner.adapter = adapter
-        holder.spinner.onItemSelectedListener = object :
 
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                val newStatus = items[p2]
+        holder.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(ctx, "Nothing Selected", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val newStatus = items[position]
+
                 db.collection("Orders").document(orderobj.id).update("status", newStatus)
                     .addOnSuccessListener {
                         Log.d("TAG", "DocumentSnapshot successfully written!")
-                        Toast.makeText(ctx, "STATUS Selected", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(ctx, "STATUS Selected $position", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener { e -> Log.w("TAG", "Error writing document", e) }
-
             }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                Toast.makeText(ctx, "Noting Selected", Toast.LENGTH_SHORT).show()
-            }
-
 
         }
+
+//
         holder.cancel.setOnClickListener {
             db.collection("Orders").document(orderobj.id)
                 .update("status", "Cancelled")

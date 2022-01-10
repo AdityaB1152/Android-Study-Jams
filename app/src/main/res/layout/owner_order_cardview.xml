@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:background="@color/grey">
-
+    android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/order_date"
@@ -15,9 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
-
         android:background="@color/grey"
-
         android:text="@string/date_and_time"/>
 
     <LinearLayout
@@ -134,8 +130,6 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-
 
             </LinearLayout>
 

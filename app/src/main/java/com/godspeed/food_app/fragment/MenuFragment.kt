@@ -9,13 +9,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.godspeed.food_app.R
-import com.godspeed.food_app.adapter.CartAdapter
 import com.godspeed.food_app.adapter.Menu
 import com.godspeed.food_app.adapter.MenuAdapter
 import com.godspeed.food_app.data.Cart
 import com.godspeed.food_app.databinding.FragmentMenuBinding
 import com.godspeed.food_app.viewmodel.CartViewModel
-
 
 class MenuFragment : Fragment(R.layout.fragment_menu) , MenuAdapter.OnItemClickListener{
 

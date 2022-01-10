@@ -2,37 +2,42 @@ package com.godspeed.food_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.godspeed.food_app.databinding.ActivityOwnerBinding
+import com.godspeed.food_app.fragment.OwnerOrderFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class OwnerActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityOwnerBinding
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_owner)
 
-        binding = ActivityOwnerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val menuFragment=manu_fragment()
+        val orderFragment=OwnerOrderFragment()
 
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment_owner) as NavHostFragment
-        navController = navHostFragment.navController
+        setCurrentFragment(menuFragment)
 
-        setupActionBarWithNavController(navController)
-        binding.bottomNavigationViewOwner.setupWithNavController(navController)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationViewOwner)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-//            when (destination.id) {
-//                R.id.menuFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
-//                R.id.orderHistoryFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
-////                else -> binding.bottomNavigationView.visibility = View.GONE
-//            }
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.manu_fragment->setCurrentFragment(menuFragment)
+                R.id.order_fragment->setCurrentFragment(orderFragment)
+
+            }
+            true
         }
+
     }
+
+    private fun setCurrentFragment(fragment:Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host_fragment_owner,fragment)
+            commit()
+        }
 }
