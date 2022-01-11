@@ -42,7 +42,7 @@ Once the app is fully tested and functional in DYPCOE university, we plan to tal
 ## Application Images:  
 
  1. **OTP Login** - 
-    ![OTP Login](./images/img1.jpg)
+    ![OTP Login](https://drive.google.com/drive/folders/1ersxdcdQS63EADPrVbOc6Cl92O71k5yR)
 
  2. **Add User Profile** - 
     ![User Profile](./images/img2.jpg)
