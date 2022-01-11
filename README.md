@@ -21,6 +21,10 @@ It solves the major problem of social distancing by informing students when the 
 The project looks to start online food delivery being the long-term goal.
 
 
+### Application Images:  
+                                                                              
+<img src="Images/img1.jpg" width="240" height="450"><img src="Images/img2.jpg" width="240" height="450"><img src="Images/img3.jpg" width="240" height="450"><img src="Images/img4.jpg" width="240" height="450">
+
 
 ### Functionality & Concepts used:
 The App has a very simple and interactive interface that helps the students select their favorite food and track their current/past order. 
@@ -38,9 +42,3 @@ Following are a few android concepts used to achieve the functionalities in the 
 ### Application Link & Future Scope:
 The app is currently in the Alpha testing phase with DYPCOE, akurdi with a limited no. of users, you can access the app: https://github.com/AdityaB1152/Android-Study-Jams
 Once the app is fully tested and functional in DYPCOE university, we plan to talk to neighboring colleges also to propose this app idea and collaborate with them on this food catering app. We aim that by next year most of the colleges in our district will use our canteen food ordering app for students to order their favorite food from the respective college canteen. Also, we are planning to include online food delivery at the doorstep of the consumer.
-
-## Application Images:  
-                                                                              
-<img src="Images/img1.jpg" width="240" height="450"><img src="Images/img2.jpg" width="240" height="450"><img src="Images/img3.jpg" width="240" height="450"><img src="Images/img4.jpg" width="240" height="450">
-
-
