@@ -40,15 +40,7 @@ The app is currently in the Alpha testing phase with DYPCOE, akurdi with a limit
 Once the app is fully tested and functional in DYPCOE university, we plan to talk to neighboring colleges also to propose this app idea and collaborate with them on this food catering app. We aim that by next year most of the colleges in our district will use our canteen food ordering app for students to order their favorite food from the respective college canteen. Also, we are planning to include online food delivery at the doorstep of the consumer.
 
 ## Application Images:  
+                                                                              
+<img src="Images/img1.jpg" width="240" height="450"><img src="Images/img2.jpg" width="240" height="450"><img src="Images/img3.jpg" width="240" height="450"><img src="Images/img4.jpg" width="240" height="450">
 
- 1. **OTP Login** - 
-    ![OTP Login](https://drive.google.com/drive/folders/1ersxdcdQS63EADPrVbOc6Cl92O71k5yR)
 
- 2. **Add User Profile** - 
-    ![User Profile](https://github.com/AdityaB1152/Android-Study-Jams/edit/main/images/img2.jpg?raw=true)
-
- 3. **Canteen Menu** - 
-    ![User Profile](./images/img3.jpg)
-
- 4. **Order History** - 
-    ![User Profile](./images/img4.jpg)
