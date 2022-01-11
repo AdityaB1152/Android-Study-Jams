@@ -38,3 +38,17 @@ Following are a few android concepts used to achieve the functionalities in the 
 ### Application Link & Future Scope:
 The app is currently in the Alpha testing phase with DYPCOE, akurdi with a limited no. of users, you can access the app: https://github.com/AdityaB1152/Android-Study-Jams
 Once the app is fully tested and functional in DYPCOE university, we plan to talk to neighboring colleges also to propose this app idea and collaborate with them on this food catering app. We aim that by next year most of the colleges in our district will use our canteen food ordering app for students to order their favorite food from the respective college canteen. Also, we are planning to include online food delivery at the doorstep of the consumer.
+
+## Application Images:  
+
+ 1. **OTP Login** - 
+    ![OTP Login](./images/img1.jpg)
+
+ 2. **Add User Profile** - 
+    ![User Profile](./images/img2.jpg)
+
+ 3. **Canteen Menu** - 
+    ![User Profile](./images/img3.jpg)
+
+ 4. **Order History** - 
+    ![User Profile](./images/img4.jpg)
