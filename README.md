@@ -45,7 +45,7 @@ Once the app is fully tested and functional in DYPCOE university, we plan to tal
     ![OTP Login](https://drive.google.com/drive/folders/1ersxdcdQS63EADPrVbOc6Cl92O71k5yR)
 
  2. **Add User Profile** - 
-    ![User Profile](./images/img2.jpg)
+    ![User Profile](https://github.com/AdityaB1152/Android-Study-Jams/edit/main/images/img2.jpg?raw=true)
 
  3. **Canteen Menu** - 
     ![User Profile](./images/img3.jpg)
